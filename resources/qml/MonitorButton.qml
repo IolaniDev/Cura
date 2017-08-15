@@ -216,7 +216,7 @@ Item
             id: homeAllButton
 
             visible: printerConnected
-            enabled: printerConnected && (["resuming", "pre-print", "printing"].indexOf(Cura.MachineManager.printerOutputDevices[0].jobState) >= 0)
+            enabled: printerConnected && (["resuming", "pre-print", "printing"].indexOf(Cura.MachineManager.printerOutputDevices[0].jobState) < 0)
 
             height: UM.Theme.getSize("save_button_save_to_button").height
 
