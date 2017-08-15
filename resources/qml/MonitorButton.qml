@@ -216,15 +216,15 @@ Item
             id: homeAllButton
 
             visible: printerConnected
-            enabled: printerConnected
+            enabled: printerConnected && (["resuming", "pre-print", "printing"].indexOf(Cura.MachineManager.printerOutputDevices[0].jobState) >= 0)
 
             height: UM.Theme.getSize("save_button_save_to_button").height
 
             text: catalog.i18nc("@label:", "Home All")
             onClicked:
             {
-                MachineManager.printerOutputDevices[0].homeHead();
-                MachineManager.PrinterOutputDevices[0].homeBed();
+                Cura.MachineManager.printerOutputDevices[0].homeHead();
+                Cura.MachineManager.PrinterOutputDevices[0].homeBed();
             }
 
             style: UM.Theme.styles.sidebar_action_button
