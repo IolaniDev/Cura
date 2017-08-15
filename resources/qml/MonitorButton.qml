@@ -213,6 +213,26 @@ Item
 
         Button
         {
+            id: homeAllButton
+
+            visible: printerConnected
+            enabled: printerConnected && Cura.MachineManager.printerOutputDevices[0].acceptsCommands &&
+                     (["paused", "printing", "pre_print"].indexOf(Cura.MachineManager.printerOutputDevices[0].jobState) >= 0)
+
+            height: UM.Theme.getSize("save_button_save_to_button").height
+
+            text: catalog.i18nc("@label:", "Home All")
+            onClicked:
+            {
+                MachineManager.printerOutputDevices[0].homeHead();
+                MachineManager.PrinterOutputDevices[0].homeBed();
+            }
+
+            style: UM.Theme.styles.sidebar_action_button
+        }
+
+        Button
+        {
             id: pauseResumeButton
 
             height: UM.Theme.getSize("save_button_save_to_button").height
