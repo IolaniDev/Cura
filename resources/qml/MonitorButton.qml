@@ -224,7 +224,6 @@ Item
             onClicked:
             {
                 Cura.MachineManager.printerOutputDevices[0].homeHead();
-                Cura.MachineManager.PrinterOutputDevices[0].homeBed();
             }
 
             style: UM.Theme.styles.sidebar_action_button
